@@ -10,17 +10,14 @@ public class StatsService {
     }
 
     public long averageCalculate (long [] purchase) {
-        long average = 0;
-        for (long i: purchase){
-            average = sumCalculate(purchase) / purchase.length;
-        }
+        long average = sumCalculate(purchase) / purchase.length;
         return average;
     }
 
     public long maximumPurchase (long [] purchase) {
         long max = purchase[0];
         long indexOfMax = 0;
-        for (int i = purchase.length - 1; i > 0; i --) {
+        for (int i = purchase.length - 1; i > 0; i--) {
             if (max < purchase[i]){
                 max = purchase[i];
                 indexOfMax = i +  1;
@@ -44,9 +41,9 @@ public class StatsService {
     public long monthAmountUnderAverage (long [] purchase) {
         long lowMonth = averageCalculate(purchase);
         int lowMonthAmount = 0;
-        for (int i = 0; i < purchase.length; i ++){
+        for (int i = 0; i < purchase.length; i++){
             if (purchase[i] < lowMonth){
-                lowMonthAmount ++;
+                lowMonthAmount++;
             }
         }
         return lowMonthAmount;
@@ -55,9 +52,9 @@ public class StatsService {
     public long monthAmountOverAverage (long [] purchase) {
         long highMonth = averageCalculate(purchase);
         int highMonthAmount = 0;
-        for (int i = 0; i < purchase.length; i ++){
+        for (int i = 0; i < purchase.length; i++){
             if (purchase[i] > highMonth){
-                highMonthAmount ++;
+                highMonthAmount++;
             }
         }
         return highMonthAmount;
